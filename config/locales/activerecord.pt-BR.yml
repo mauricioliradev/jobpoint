@@ -17,7 +17,8 @@ pt-BR:
         <<: *default_attributes
         date: "Data"
         kind: "tipo"
-        user_id: "Usuário"      
+        user_id: "Usuário"
+        description: "Observação"   
       user:
         <<: *default_attributes
         password: "Senha"

@@ -1,0 +1,9 @@
+# encoding: UTF-8
+pt-BR:
+  controllers:
+    access_denied: "Desculpe, você não tem permisão para acessar esta área."
+    no_location: "Desculpe, determine sua localização antes de continuar!"
+    registers:
+      created: "Registro foi criado com sucesso."
+      updated: "Registro foi atualizado com sucesso."
+      destroyed: "Registro foi excluído com sucesso."

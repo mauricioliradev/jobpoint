@@ -25,3 +25,6 @@ pt-BR:
         profile: "Perfil"
         edit_profile: "Editar Conta"
         sign_out: "Desconectar"
+        registers: "Registros"
+        registers_new: "Novo Registro"
+        history: "Histórico"

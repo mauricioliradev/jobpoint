@@ -14,6 +14,6 @@ Rails.application.routes.draw do
     sign_up:      :'cadastre-se',
     edit:         :'editar-perfil'
   }
-  resources :registers
+  resources :registers, path: :registros
   root 'pages#home'
 end

@@ -1,0 +1,46 @@
+<div class="jumbotron">
+  <%= form_for(@register) do |f| %>
+    <% if @register.errors.any? %>
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h2><%= pluralize(@register.errors.count, "erro impede", plural: "erros impedem") %> esta acão de ser finalizada:</h2>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <% @register.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :date, value: Time.now %>
+      <div class="text-center">
+        <div class="panel-body">
+        <h3>Olá <b><%= current_user.name.capitalize %></b>, registre seu ponto!</h3>
+        <div class="row">
+          <h4> 
+            <div class="form-check">
+              <% Register::KIND_OPTIONS.each do |k| %>
+                <label class="form-check-label">
+                  <%= f.radio_button :kind, k[:id],  id: k[:id], class: 'form-check-input radio-inline'%> <%= k[:name] %>
+                </label>                
+              <% end %>
+            </div>                                   
+          </h4>
+        </div>
+        <h1 id="time"></h1>        
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+          <div class="row">            
+            <div class="col-md-12">
+              <%= f.submit 'Registrar Ponto', class: "btn btn-warning btn-lg" %>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>      
+</div>

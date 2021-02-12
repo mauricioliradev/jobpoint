@@ -12,8 +12,28 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require rails-ujs
 //= require activestorage
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+$(document).ready(function() {
+  radiobtn = document.getElementById("1");
+  radiobtn.checked = true;
+  (function () {
+    function checkTime(i) {
+        return (i < 10) ? "0" + i : i;
+    }
+
+    function startTime() {
+      var today = new Date(),
+        h = checkTime(today.getHours()),
+        m = checkTime(today.getMinutes()),
+        s = checkTime(today.getSeconds());
+      document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+      t = setTimeout(function () {
+        startTime()
+      }, 500);
+  }
+    startTime();
+  })();
+});
