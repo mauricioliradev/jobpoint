@@ -1,0 +1,34 @@
+# encoding: UTF-8
+pt-BR:
+  activerecord:
+    models:
+      register:
+        one: "Registro"
+        other: "Registros"
+      user:
+        one: "Usuário"
+        other: "Usuários"
+    attributes:
+      default_attributes: &default_attributes
+        id: "Identificador"
+        created_at: "Criado em"
+        updated_at: "Alterado em"      
+      register:
+        <<: *default_attributes
+        date: "Data"
+        kind: "tipo"
+        user_id: "Usuário"      
+      user:
+        <<: *default_attributes
+        password: "Senha"
+        locale: "Idioma"
+        password_confirmation: "Confirmação da Senha"
+        current_password: "Senha Atual"
+        remember_me: "Manter conectado"
+        email: "Email"
+        avatar: "Avatar"
+        name: "Nome"
+        username: "Nome de usuário"
+        login: "Nome de usuário ou Email"
+        active: "Ativo"
+    

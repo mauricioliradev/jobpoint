@@ -1,0 +1,27 @@
+# encoding: UTF-8
+pt-BR:
+  views:
+    app_name: "JobPoint"
+    show: "Exibir"
+    edit: "Alterar"
+    reject: "Rejeitar"
+    agree: "Aceitar"
+    destroy: "Remover"
+    share: "Compartilhar"
+    load: "Carregar"
+    back: "Voltar"
+    button_confirmed: "Confirmar"
+    boolean_yes: "Sim"
+    boolean_not: "Não"
+    read_more: "Saiba mais..."
+    include: "Adicionar"
+    send: "Enviar"
+    layouts:
+      activity:
+        register_new_activity: "Cadastrar nova atividade"
+        save: "Salvar"
+        cancel: "Cancelar"
+      menu:
+        profile: "Perfil"
+        edit_profile: "Editar Conta"
+        sign_out: "Desconectar"
