@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # Overwriting the sign_out redirect path method
-  def after_sign_out_path_for(resource_or_scope)
-    return new_user_session_path
+  # Overwriting the sign_oin redirect path method
+  def after_sign_in_path_for(resource)
+    return new_register_path
   end
 end

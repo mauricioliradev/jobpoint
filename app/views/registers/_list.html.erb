@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-md-12">
+    <div id="no-more-tables">
+      <table class="table table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th><%= t("activerecord.attributes.register.user_id") %></th>
+            <th><%= t("activerecord.attributes.register.date") %></th>
+            <th><%= t("activerecord.attributes.register.kind") %></th>            
+            <th><%= t("activerecord.attributes.register.description") %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @registers.where(user_id: current_user.id).each do |register| %>
+            <tr>
+              <td>
+                <%= register.user.name %>
+              </td>
+              <td>
+                <%= register.date.strftime('%d/%m/%Y %H:%M:%S') %>
+              </td>
+              <td>
+              <% if register.kind == 1 %>
+                <span class="label label-primary"><%= Register.get_human_kinds(register.kind) %></span>
+              <% elsif register.kind == 2 %>
+                <span class="label label-warning"><%= Register.get_human_kinds(register.kind) %></span>
+               <% else %>
+                  <span class="label label-success"><%= Register.get_human_kinds(register.kind) %></span>
+               <% end %>
+              </td>
+              <td>
+                <%= register.description %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
       </button>
       
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand">
         <%= image_tag "relogio.png", width: '50px', style: 'margin-right: -20px; margin-top: -14px;' %> 
       </a>
     </div>
@@ -38,7 +38,7 @@
       <% else %>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <a href="/users/sign_in" id="link_conectar"><i class="fa fa-sign-in" aria-hidden="true"></i> <%= t("devise.sessions.sign_in") %> <span class="sr-only">(current)</span></a>
+            <a href="/users/login" id="link_conectar"><i class="fa fa-sign-in" aria-hidden="true"></i> <%= t("devise.sessions.sign_in") %> <span class="sr-only">(current)</span></a>
           </li>
         </ul>
       <% end %>

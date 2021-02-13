@@ -16,7 +16,7 @@ pt-BR:
       register:
         <<: *default_attributes
         date: "Data"
-        kind: "tipo"
+        kind: "Tipo"
         user_id: "Usuário"
         description: "Observação"   
       user:

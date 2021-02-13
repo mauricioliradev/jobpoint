@@ -15,5 +15,5 @@ Rails.application.routes.draw do
     edit:         :'editar-perfil'
   }
   resources :registers, path: :registros
-  root 'pages#home'
+  root 'registers#new'
 end

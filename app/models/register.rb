@@ -23,4 +23,18 @@ class Register < ApplicationRecord
     end
     return I18n.t('helpers.application.unknow')
   end
+
+  ##### SCOPES
+  filterrific(
+    available_filters: [
+      :with_kind,
+      :with_date
+    ]
+  )
+  scope :with_kind, lambda { |kind|
+    where(kind: kind, user_id: 2)
+  }
+  scope :with_date, lambda { |register_date|
+    where(date: Time.parse(register_date).beginning_of_day..Time.parse(register_date).end_of_day)
+  }
 end

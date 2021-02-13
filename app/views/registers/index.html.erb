@@ -1,0 +1,58 @@
+<%= content_for(:title, t("views.app_name") + " | " + t("views.boards.listing")) %>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>Histórico</h1>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-10">
+        <%= paginate @registers %>
+      </div>    
+    </div>
+  </div>
+</div>
+
+<div class="well">
+  <div class="row">
+    <%= form_for_filterrific(@filterrific, html: { id: "filterrific-no-ajax-auto-submit" }, remote: true) do |f| %>
+      <div class="for-group col-md-6">      
+        <label><%= t("activerecord.attributes.register.kind") %>:</label>
+        <%= f.select(:with_kind, Register::KIND_OPTIONS.map { |a| [a[:name], a[:id]] }, {include_blank: "Escolha"}, class: "form-control") %>
+      </div>
+      <div class="for-group col-md-6">
+        <label><%= t("activerecord.attributes.register.date") %>:</label>
+        <div class='date'>
+          <%= f.datetime_field(:with_date, class: "form-control") %>         
+        </div>
+      </div>
+
+      <div class="col-md-3 pull-right" style="text-align: right; padding-top: 7px;">
+        <br>
+        <%= button_tag(type: "submit", class: "btn btn-warning") do %>
+            <i class="fa fa-search" aria-hidden="true"></i> <%= t('views.search') %>
+        <% end %>
+
+        <%= link_to "<span class='fa fa-eraser' aria-hidden='true'></span> #{t('views.clean')}".html_safe, reset_filterrific_url, class: "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="filterrific_results">
+  <%= render( partial: 'list', locals: { registers: @registers }) %>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-10">
+        <%= paginate @registers %>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br>

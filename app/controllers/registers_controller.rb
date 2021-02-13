@@ -1,9 +1,16 @@
 class RegistersController < ApplicationController
   before_action :set_register, only: [:show, :edit, :update, :destroy]
-
   # GET /registers
   def index
-    @registers = Register.all
+    @filterrific = initialize_filterrific(
+      Register,
+      params[:filterrific]
+    ) or return
+    @registers = @filterrific.find.order(created_at: :desc).page(params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /registers/1
@@ -22,16 +29,25 @@ class RegistersController < ApplicationController
   # POST /registers
   def create
     @register = Register.new(register_params)
-
-    respond_to do |format|
-      if @register.save
-        format.html { redirect_to registers_path, notice: t('controllers.registers.created') }
-        format.json { render :show, status: :created, location: @register }
-      else
-        format.html { render :new }
-        format.json { render json: @register.errors, status: :unprocessable_entity }
+    register = Register.where(user_id: register_params[:user_id], kind: register_params[:kind], date: register_params[:date].to_date.beginning_of_day..register_params[:date].to_date.end_of_day ).count
+    puts "testeeeeeee"
+    puts register
+    puts "testtttttt"
+      if register == 0 
+        respond_to do |format|
+          if @register.save
+            format.html { redirect_to registers_path, notice: t('controllers.registers.created') }
+            format.json { render :show, status: :created, location: @register }
+          else
+            format.html { render :new }
+            format.json { render json: @register.errors, status: :unprocessable_entity }
+          end
+        end
+      else 
+        respond_to do |format|
+          format.html { redirect_to request.referer, alert: "Atenção, você já registrou seu ponto de #{Register.get_human_kinds(register_params[:kind].to_i)} hoje!" }
+        end
       end
-    end
   end
 
     # PATCH/PUT /registers/1

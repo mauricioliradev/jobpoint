@@ -1,0 +1,18 @@
+# encoding: UTF-8
+pt-BR:
+  views:
+    pagination:
+      first: "&laquo; Início"
+      last: "Último &raquo;"
+      previous: "&lsaquo; Voltar"
+      next: "Avançar &rsaquo;"
+      truncate: "..."
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Nenhum %{entry_name} encontrado(a)"
+          one: "Exibindo <b>1</b> %{entry_name}"
+          other: "Exibindo <b>%{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"

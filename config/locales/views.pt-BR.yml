@@ -16,6 +16,8 @@ pt-BR:
     read_more: "Saiba mais..."
     include: "Adicionar"
     send: "Enviar"
+    clean: "Limpar"
+    search: "Pesquisar"
     layouts:
       activity:
         register_new_activity: "Cadastrar nova atividade"
