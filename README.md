@@ -1,6 +1,6 @@
 # JobPoint
 
-Desafio Técnico Desafio técnico para a vaga de RoR;
+Desafio técnico para a vaga de RoR;
 
 ## Tabs
 
@@ -49,6 +49,12 @@ A solução foi implementada com as seguintes ferramentes:
 - Mysql
 - Bootstrap 4
 - Jquery
+
+O sistema foi pensado de forma que cada cada usuário ao logar tenha acesso somente ao seu historíco. Mas poderia ser implementado também a autorização, tendo assim perfis de usuários específicos para acessar o histórico de todos os usuários.
+
+Sobre o controle de ponto a validação implementada foi somente para restringir a criação de um mesmo tipo de ponto no mesmo dia, por exemplo registrar o ponto de entrada mais de uma vez no dia. Outra alternativa que poderia ser implementada era definir o tipo de ponto(Entrada, Almoço, Saída) automaticamente de acordo com o horário atual, sem o usuário informar o tipo manualmente.
+
+Demonstração em produção: https://jobpoints.herokuapp.com
 
 # Instalação
 
